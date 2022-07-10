@@ -1,8 +1,6 @@
 package sudoku_nan
 
 import (
-	"io/ioutil"
-	"net/http"
 	"fmt"
 )
 
@@ -47,22 +45,6 @@ func SudokuChecker(board [9][9]int) bool {
 		}
 	}
 	return true
-}
-
-
-func GetBoardFromWebsite(difficulty string) string {
-	resp, err := http.Get("https://sudoku.com/api/level/" + difficulty)
-	if err != nil {
-		fmt.Println(err)
-		return "nil"
-	}
-	defer resp.Body.Close()
-	body, err := ioutil.ReadAll(resp.Body)
-	if err != nil {
-		fmt.Println(err)
-		return "nil"
-	}
-	return string(body)
 }
 
 func PrintBoard(board [9][9]int) {

@@ -8,9 +8,8 @@ import (
 
 
 func main() {
-	// test := "000000000000000000000000000000000001000000000000000000000000000000000000000000000"
+	// test := "002000001000020000403010000000001200070245603021306400010007020030402100240103500"
 	stringBoard := "096040001100060004504810390007950043030080000405023018010630059059070830003590007"
-	fmt.Println(sudoku_nan.GetBoardFromWebsite("medium"))
 	board := StringToBoard(stringBoard)
 	results := [][9][9]int{}
 	t1 := time.Now()
@@ -43,7 +42,7 @@ func NextEmpty(board [9][9]int) (int, int) {
 }
 
 func Solve(currentBoard [9][9]int, validBoards *[][9][9]int) {
-	if (len(*validBoards) >= 1) {
+	if (len(*validBoards) > 1) {
 		return
 	}
 	targetX, targetY := NextEmpty(currentBoard)
